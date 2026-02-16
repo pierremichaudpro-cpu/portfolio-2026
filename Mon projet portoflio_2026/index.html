@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pierre Michaud — Product Designer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        /**
+         * SYSTÈME TYPOGRAPHIQUE HARMONIQUE (MAXIMAL READABILITY)
+         * Basé sur le Nombre d'Or (φ = 1.618) et la suite de Fibonacci
+         * 
+         * Suite de Fibonacci : 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233...
+         * Optimisé pour un impact visuel maximal et une lisibilité exceptionnelle
+         * 
+         * Display Large : 89px (Fibonacci F11) - Titres héros
+         * Display Medium : 55px (Fibonacci F10) - Titres de sections
+         * Title Large : 34px (Fibonacci F9) - Sous-titres
+         * Body Large : 21px (Fibonacci F8) - Texte important
+         * Body Medium : 18px - Texte standard
+         * Label Small : 13px (Fibonacci F7) - Labels
+         */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'secondary': '#9aa0a6'
+                    },
+                    fontSize: {
+                        'display-large': ['5.5625rem', {  // 89px - Fibonacci
+                            lineHeight: '1.1',
+                            fontWeight: '500',
+                            letterSpacing: '-0.02em'
+                        }],
+                        'display-medium': ['3.4375rem', {  // 55px - Fibonacci
+                            lineHeight: '1.15',
+                            fontWeight: '500',
+                            letterSpacing: '-0.02em',
+                            color: '#9aa0a6'  // Gris secondaire
+                        }],
+                        'title-large': ['2.125rem', {  // 34px - Fibonacci
+                            lineHeight: '1.3',
+                            fontWeight: '400',
+                            letterSpacing: '-0.01em',
+                            color: '#9aa0a6'  // Gris secondaire
+                        }],
+                        'body-large': ['1.3125rem', {  // 21px - Fibonacci
+                            lineHeight: '1.6',
+                            fontWeight: '400',
+                            letterSpacing: '0',
+                            color: '#f5f5f5'  // Blanc élégant légèrement cassé
+                        }],
+                        'body-medium': ['1.125rem', {  // 18px
+                            lineHeight: '1.6',
+                            fontWeight: '400',
+                            letterSpacing: '0',
+                            color: '#f5f5f5'  // Blanc élégant légèrement cassé
+                        }],
+                        'label-small': ['0.8125rem', {  // 13px - Fibonacci
+                            lineHeight: '1.2',
+                            fontWeight: '400',
+                            letterSpacing: '0.05em'
+                        }]
+                    },
+                    maxWidth: {
+                        'reading': '43rem',  // 688px - Largeur de lecture optimale
+                        'reading-wide': '50rem'  // 800px - Pour contenus plus larges
+                    },
+                    spacing: {
+                        '89': '5.5625rem',   // 89px - Fibonacci
+                        '144': '9rem',       // 144px - Fibonacci
+                        '233': '14.5625rem'  // 233px - Fibonacci
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <div class="ambient-light"></div>
+
+    <header class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title display-large font-sans">
+                <span class="hero-text-gradient">Pierre Michaud,</span><br>
+                Product Designer
+            </h1>
+            <p class="hero-description">
+                Depuis 8 ans, je conçois des produits numériques B2B et B2C, de la stratégie produit à l'industrialisation, avec une obsession pour la clarté et l'impact.
+            </p>
+        </div>
+    </header>
+
+    <section class="skills-section">
+        <div class="skills-marquee-wrapper">
+            <div class="skills-marquee-track">
+                <span class="chip">Product Design (UX/UI)</span>
+                <span class="chip">Design Systems</span>
+                <span class="chip">Prototypage Avancé</span>
+                <span class="chip">Accessibilité (RGAA/WCAG)</span>
+                <span class="chip">Discovery</span>
+                <span class="chip">Recherche Utilisateur</span>
+                <span class="chip">Tests Utilisateurs</span>
+                <span class="chip">Ateliers Co-conception</span>
+                <span class="chip">Journey Mapping</span>
+                <span class="chip-separator">///</span>
+                <span class="chip">Figma & Figjam</span>
+                <span class="chip">Jira / Confluence</span>
+                <span class="chip">Notion / Miro</span>
+                <span class="chip">Adobe Creative Suite</span>
+            </div>
+        </div>
+    </section>
+
+    <main id="work">
+        <div class="section-title-wrapper">
+            <h2 class="section-title">Quelques projets.</h2>
+        </div>
+
+        <div class="projects-container">
+            <article class="phi-section" onclick="openProject('renault')">
+                <div class="phi-content">
+                    <div class="phi-tags">
+                        <span class="pill-tag">Product Design</span>
+                        <span class="pill-tag">Design System</span>
+                    </div>
+                    <h3 class="phi-project-title title-large font-sans">Renault Group</h3>
+                    <p class="phi-project-desc body-large font-sans">Accélérer la mobilité électrique via une expérience de charge fluide et une stratégie produit B2B dédiée à l'écosystème Renault.</p>
+                    <button class="phi-btn">Voir le projet <span class="material-symbols-outlined">arrow_forward</span></button>
+                </div>
+                <div class="phi-visual-wrapper">
+                    <img src="./asset/New_hero_RNLT.png" alt="Renault" class="phi-img">
+                </div>
+            </article>
+            
+            <article class="phi-section reverse" onclick="openProject('edf')">
+                <div class="phi-content">
+                    <div class="phi-tags">
+                        <span class="pill-tag">App Mobile</span>
+                        <span class="pill-tag">Design System</span>
+                    </div>
+                    <h3 class="phi-project-title title-large font-sans">EDF & Moi</h3>
+                    <p class="phi-project-desc body-large font-sans">Accompagner la transition énergétique par une expérience mobile de premier plan pour 4 millions d'usagers.</p>
+                    <button class="phi-btn">Voir le projet <span class="material-symbols-outlined">arrow_forward</span></button>
+                </div>
+                <div class="phi-visual-wrapper">
+                    <img src="./asset/New_Hero_EDF.png" alt="EDF" class="phi-img">
+                </div>
+            </article>
+
+            <article class="phi-section" onclick="openProject('tmi')">
+                <div class="phi-content">
+                    <div class="phi-tags">
+                        <span class="pill-tag">Branding</span>
+                        <span class="pill-tag">Web Design</span>
+                    </div>
+                    <h3 class="phi-project-title title-large font-sans">Temeritati</h3>
+                    <p class="phi-project-desc body-large font-sans">Repenser l’image d’un cabinet de conseil expert en créant un écosystème de marque cohérent et stratégique.</p>
+                    <button class="phi-btn">Voir le projet <span class="material-symbols-outlined">arrow_forward</span></button>
+                </div>
+                <div class="phi-visual-wrapper">
+                    <img src="./asset/TMI-hero.png" alt="Temeritati" class="phi-img">
+                </div>
+            </article>
+
+            <article class="phi-section reverse" onclick="openProject('sypographie')">
+                <div class="phi-content">
+                    <div class="phi-tags">
+                        <span class="pill-tag">UI Design</span>
+                        <span class="pill-tag">Typographie</span>
+                    </div>
+                    <h3 class="phi-project-title title-large font-sans">Sypographie</h3>
+                    <p class="phi-project-desc body-large font-sans">Recherche expérimentale sur la matérialité numérique du langage et de l'oralité via une écriture sonore.</p>
+                    <button class="phi-btn">Voir le projet <span class="material-symbols-outlined">arrow_forward</span></button>
+                </div>
+                <div class="phi-visual-wrapper">
+                    <img src="./asset/SYPO-hero.png" alt="Sypographie" class="phi-img">
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Pierre Michaud — Design Harmonique (Ratio $\phi$)</p>
+    </footer>
+
+    <div id="project-modal" class="modal-overlay">
+        <button class="close-btn" onclick="closeProject()">
+            <span>Fermer</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div id="modal-body" class="modal-content"></div>
+    </div>
+
+    <div id="templates-container" style="display: none;">
+        <div id="content-renault">
+            <div class="case-study-container">
+                <header class="case-header">
+                    <h1 class="case-title display-large font-sans">Renault Digital</h1>
+                    <p class="case-subtitle body-large font-sans">Définition et déploiement de l'écosystème de charge électrique.</p>
+                </header>
+                <div class="case-meta-grid">
+                    <div class="meta-item">
+                        <h4 class="label-small font-sans uppercase text-secondary">Client</h4>
+                        <p class="body-medium font-sans">Renault Digital</p>
+                    </div>
+                    <div class="meta-item">
+                        <h4 class="label-small font-sans uppercase text-secondary">Rôle</h4>
+                        <p class="body-medium font-sans">Lead Product Designer</p>
+                    </div>
+                    <div class="meta-item">
+                        <h4 class="label-small font-sans uppercase text-secondary">Année</h4>
+                        <p class="body-medium font-sans">2023–2024</p>
+                    </div>
+                </div>
+                <img src="./asset/Renault_6_smartcharge.png" class="case-full-media" alt="Renault Smart Charge" style="background: transparent;">
+                
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">01. Le Challenge</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        Accompagner la transition électrique de Renault en concevant les outils critiques pour la charge 
+                        en itinérance et à domicile. L'enjeu : transformer une infrastructure technique complexe en une 
+                        expérience utilisateur simple, tout en boostant l'adoption commerciale des services de charge.
+                    </p>
+                </div>
+
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">02. Impact Business & Stratégie</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Résultat Majeur</strong> : Augmentation de <strong class="text-white font-medium">20% des ventes de pass de charge</strong> 
+                        grâce à l'optimisation des parcours et de la visibilité des services.
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Vision Produit</strong> : Définition de la roadmap stratégique pour deux projets majeurs : 
+                        l'offre B2B et l'Electrical Road Planner (ERP).
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Arbitrage</strong> : Collaboration directe avec la direction pour prioriser les fonctionnalités 
+                        à fort impact et illustrer la vision via des prototypes haute fidélité.
+                    </p>
+                </div>
+
+                <div class="image-grid">
+                    <div class="image-grid-item" onclick="openLightbox('./asset/New_hero_RNLT.png')">
+                        <img src="./asset/New_hero_RNLT.png" alt="Renault Hero">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/Renault_2_chargepass.png')">
+                        <img src="./asset/Renault_2_chargepass.png" alt="Charge Pass">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/Renault_3_chargepass.png')">
+                        <img src="./asset/Renault_3_chargepass.png" alt="Charge Pass Details">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/Renault_4_carte.png')">
+                        <img src="./asset/Renault_4_carte.png" alt="Carte">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/Renault_5-carte.png')">
+                        <img src="./asset/Renault_5-carte.png" alt="Carte Navigation">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/Renault_6bis_notif.png')">
+                        <img src="./asset/Renault_6bis_notif.png" alt="Notifications">
+                    </div>
+                </div>
+
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">03. Leadership & Delivery</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Management & Mentoring</strong> : Encadrement de designers juniors et conduite des 
+                        Design Reviews pour garantir l'excellence créative.
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Collaboration Engineering</strong> : Intégration totale au sein d'une équipe de 9 développeurs 
+                        (Rituels Agiles, rédaction des tickets, recettes QA ultra-précises).
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Design System</strong> : Utilisation et contribution active au Design System global de 
+                        Renault pour assurer une cohérence de marque à grande échelle.
+                    </p>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-item bento-large bento-zoom">
+                        <img src="./asset/Renault_8_B2B2.png" alt="B2B 2">
+                    </div>
+                    <div class="bento-item bento-large bento-zoom">
+                        <img src="./asset/Renault_7_B2B1.png" alt="B2B 1">
+                    </div>
+                </div>
+
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">04. User-Centric Process</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Cycle de recherche complet</strong> : Conception du protocole, conduite des entretiens et tests 
+                        utilisateurs sur un panel de 30 testeurs.
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Impact Data</strong> : Traduction des retours utilisateurs en décisions produit concrètes et 
+                        ajustements d'interface immédiats.
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Conception de bout en bout</strong> : UX Research, architecture d'information, UI Design et 
+                        prototypage complexe sous Figma.
+                    </p>
+                </div>
+
+                <img src="./asset/Renault_9_onboard.png" class="case-full-media case-highlight" alt="Onboarding Experience">
+
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">05. Environnement Technique</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Stack</strong> : Figma, Jira (Agile), Design System propriétaire.
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Contexte International</strong> : Travail intégralement en anglais au sein d'équipes pluridisciplinaires.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-edf">
+            <div class="case-study-container">
+                <header class="case-header">
+                    <h1 class="case-title display-medium font-sans">Application EDF & Moi</h1>
+                    <p class="case-subtitle title-large font-sans">Refonte de l'écosystème numérique d'EDF Particuliers.</p>
+                </header>
+                <div class="case-meta-grid">
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Client</h4><p class="body-medium font-sans">EDF Particuliers</p></div>
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Rôle</h4><p class="body-medium font-sans">Lead Designer</p></div>
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Année</h4><p class="body-medium font-sans">2022–2023</p></div>
+                </div>
+                <img src="./asset/New_Hero_EDF.png" class="case-full-media" alt="EDF Hero" style="background: transparent;">
+                
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">01. Le Challenge</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        Au cœur de la Fabrique Digitale d'EDF, l'enjeu était double : moderniser une application vieillissante 
+                        et faire évoluer une identité visuelle historique pour les usages numériques de demain. Un défi 
+                        d'accessibilité et de clarté pour des millions d'utilisateurs.
+                    </p>
+                </div>
+
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">02. Expertise & Rôle</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Position</strong> : Lead Designer (Régie)
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Vision 2030</strong> : Exploration UX/UI sur le programme prospectif "Horizon".
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Design Ops</strong> : Création et pilotage d'un Design System multi-plateforme (Web & App).
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Management</strong> : Direction artistique et encadrement de 2 designers.
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Collaboration</strong> : Animation d'ateliers de co-conception et suivi rigoureux des développements.
+                    </p>
+                </div>
+
+                <div class="image-grid">
+                    <div class="image-grid-item" onclick="openLightbox('./asset/EDF_1_persona.png')">
+                        <img src="./asset/EDF_1_persona.png" alt="EDF Persona">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/EDF_2_mapping.png')">
+                        <img src="./asset/EDF_2_mapping.png" alt="EDF Mapping">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/EDF_3_parcours.png')">
+                        <img src="./asset/EDF_3_parcours.png" alt="EDF Parcours">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/EDF_4_pilotage.png')">
+                        <img src="./asset/EDF_4_pilotage.png" alt="EDF Pilotage">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/EDF_5_VE.png')">
+                        <img src="./asset/EDF_5_VE.png" alt="EDF VE">
+                    </div>
+                    <div class="image-grid-item" onclick="openLightbox('./asset/EDF_6_moodboard.png')">
+                        <img src="./asset/EDF_6_moodboard.png" alt="EDF Moodboard">
+                    </div>
+                </div>
+
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">03. La Méthodologie</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">User Journey & Flow</strong> : Cartographie des parcours complexes pour 
+                        l'électrification des habitats. Objectif : Réduire les points de friction et booster la conversion.
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Design System & Tokens</strong> : Mise en place d'une architecture de tokens 
+                        (couleurs, typo, spacing) pour garantir la cohérence et l'accessibilité (RGAA).
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Simulateur 360</strong> : Conception de wireframes complexes pour aider 
+                        les clients à piloter leur consommation en temps réel.
+                    </p>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-item bento-large bento-zoom">
+                        <img src="./asset/EDF_7_DS.png" alt="EDF Design System">
+                    </div>
+                    <div class="bento-item bento-large bento-zoom">
+                        <img src="./asset/EDF_8_DS.png" alt="EDF Design System 2">
+                    </div>
+                </div>
+
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">04. Résultats Mesurables</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Performance Stores</strong><br>
+                        App Store : 4,2 → 4,6 / 5<br>
+                        Google Play : 4,0 → 4,5 / 5
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        <strong class="text-white font-medium">Feedback Utilisateurs</strong><br>
+                        « L'application s'est <strong class="text-white font-medium">métamorphosée</strong>. C'est devenu un outil indispensable 
+                        pour <strong class="text-white font-medium">piloter ma consommation</strong> au quotidien. »
+                    </p>
+                    <p class="case-paragraph body-large font-sans">
+                        « Qualité en nette progression, les infos sont enfin <strong class="text-white font-medium">claires et exploitables</strong>. »
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-tmi">
+            <div class="case-study-container">
+                <header class="case-header">
+                    <h1 class="case-title display-medium font-sans">Temeritati</h1>
+                    <p class="case-subtitle title-large font-sans">Direction Artistique & Identité — Repenser l'image d'un cabinet de conseil expert.</p>
+                </header>
+                <div class="case-meta-grid">
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Client</h4><p class="body-medium font-sans">Temeritati Conseil</p></div>
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Rôle</h4><p class="body-medium font-sans">Lead Designer & Brand Strategist</p></div>
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Année</h4><p class="body-medium font-sans">2021</p></div>
+                </div>
+                <img src="./asset/TMI-hero.png" class="case-full-media">
+                
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">Le Challenge</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        Alors consultant pour le cabinet Temeritati (en mission chez RAJA et Robeau), j'ai identifié
+                        un besoin crucial de modernisation de leur propre image. L'objectif était d'aligner l'identité
+                        visuelle du cabinet sur son niveau d'expertise en conseil stratégique et transformation digitale.
+                    </p>
+                </div>
+
+                <div class="case-section">
+                    <div class="case-grid">
+                        <div>
+                            <h3 class="case-heading title-large font-sans">Vision 360°</h3>
+                            <p class="case-paragraph body-large font-sans">
+                                Stratégie de Marque : définition du Tone of Voice et positionnement<br>
+                                Design Global : logotype et systèmes graphiques<br>
+                                Digital & Dev : site responsive haute performance
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="case-heading title-large font-sans">Impact</h3>
+                            <p class="case-paragraph body-large font-sans">
+                                Cohérence de marque unifiée sur tous les points de contact (Print, Web, Social).
+                                Une identité qui a facilité la présentation auprès de clients grands comptes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-sypographie">
+            <div class="case-study-container">
+                <header class="case-header">
+                    <h1 class="case-title display-medium font-sans">Sypographie</h1>
+                    <p class="case-subtitle title-large font-sans">Recherche Expérimentale — Vers une écriture sonore et vivante.</p>
+                </header>
+                <div class="case-meta-grid">
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Type</h4><p class="body-medium font-sans">Projet Personnel</p></div>
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Domaine</h4><p class="body-medium font-sans">Typographie Numérique</p></div>
+                    <div class="meta-item"><h4 class="label-small font-sans uppercase text-secondary">Année</h4><p class="body-medium font-sans">2020</p></div>
+                </div>
+                <img src="./asset/SYPO-hero.png" class="case-full-media">
+                
+                <div class="case-body">
+                    <h2 class="case-heading title-large font-sans">Le Manifeste</h2>
+                    <p class="case-paragraph body-large font-sans">
+                        L'écriture traditionnelle est figée par des siècles de contraintes matérielles (plomb, papier, écran statique).
+                        Pourquoi la majuscule serait-elle le seul outil pour représenter un cri ? La Sypographie pose le postulat
+                        d'une typographie libérée : une forme graphique qui s'ajuste en temps réel à l'intensité, au volume et à
+                        la fréquence de la voix.
+                    </p>
+                </div>
+
+                <div class="case-section">
+                    <div class="case-grid reverse">
+                        <div>
+                            <h3 class="case-heading title-large font-sans">Une Exploration Multidimensionnelle</h3>
+                            <p class="case-paragraph body-large font-sans">
+                                Recherche Sémantique : lien entre son de la lettre et représentation plastique<br>
+                                Interactivité Directe : programme captant le signal micro pour déformer la lettre<br>
+                                Singularité Numérique : révéler l'empreinte vocale unique de chaque individu
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="case-heading title-large font-sans">Impact & Vision</h3>
+                            <p class="case-paragraph body-large font-sans">
+                                Présenté aux Rencontres Internationales de Lure. Dépasser l'outil : faire de l'interface
+                                un nouveau médium d'expression artistique, réinjecter la fragilité et l'intensité de la voix
+                                humaine dans la perfection froide des tracés vectoriels.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-overlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <img id="lightbox-image" src="" alt="" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    
+    <!-- Script principal -->
+    <script src="script.js"></script>
+</body>
+</html>
